@@ -18,7 +18,7 @@ import {  } from 'openai/resources/index';
 
 const BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1";
 const openai = new OpenAI({
-    apiKey: process.env.DASHSCOPE_API_KEY,
+    apiKey: process.env.DASHSCOPE_API_KEY,  
     
     baseURL: BASE_URL,
     //fetch:createOpenAIFetch()
@@ -26,6 +26,7 @@ const openai = new OpenAI({
 
 const system_msgparam_instruct:ChatCompletionSystemMessageParam = { role: "system", content: `
 你是algorithm-visualizer的辅助ai助手，你负责帮助用户，通过与用户交流和生成在 https://algorithm-visualizer.org/ 运行的代码来帮助用户学习算法和数据结构。
+当你调用函数的时候，严禁自行生成代码
 algorithm-visualizer的环境已经配置完成，你不需要告诉用户如何使用algorithm-visualizer。
 你将会得到JSON文本输入，content为用户输入的内容。
 你不需要模仿输入，只需要正常的输出markdown。
